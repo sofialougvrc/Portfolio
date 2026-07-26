@@ -3060,6 +3060,102 @@ body[data-active-page="home"] #portfolio-browser .page-viewport {
  .britannica-main { order: 1; }
  .britannica-news { order: 3; }
  .britannica-photo { width: 156px; height: 156px; }
+ .britannica-reference {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+ }
+ .britannica-ref-top {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+ }
+ .britannica-ref-brand,
+ .britannica-ref-search,
+ .britannica-ref-radios,
+ .britannica-ref-utilities {
+  grid-column: 1;
+  grid-row: auto;
+ }
+ .britannica-ref-brand {
+  padding: 7px 9px 4px;
+  font-size: 23px;
+ }
+ .britannica-ref-search {
+  padding: 4px 8px;
+ }
+ .britannica-ref-utilities,
+ .britannica-ref-mark {
+  display: none;
+ }
+ .britannica-ref-radios {
+  padding: 5px 8px 7px;
+ }
+ .britannica-ref-radios em {
+  float: none;
+  display: block;
+  margin-left: 21px;
+ }
+ .britannica-ref-tabs {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  height: auto;
+ }
+ .britannica-ref-tabs a,
+ .britannica-ref-tabs a.active,
+ .britannica-ref-tabs a:nth-child(2),
+ .britannica-ref-tabs a:nth-child(3),
+ .britannica-ref-tabs a:nth-child(4) {
+  grid-column: auto;
+ }
+ .britannica-ref-tabs div {
+  grid-column: 1 / -1;
+  padding: 4px 8px;
+  text-align: center;
+ }
+ .britannica-ref-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+ }
+ .britannica-ref-main {
+  order: 1;
+  padding: 8px;
+ }
+ .britannica-ref-news {
+  order: 2;
+  padding: 8px;
+ }
+ .britannica-ref-left {
+  order: 3;
+  min-height: 0;
+ }
+ .britannica-profile-article {
+  display: block;
+  padding: 8px;
+ }
+ .britannica-profile-photo {
+  display: block;
+  width: min(180px, 70vw);
+  height: min(200px, 78vw);
+  margin: 0 auto 8px;
+ }
+ .britannica-profile-article h2,
+ .britannica-profile-article h3,
+ .britannica-profile-article p {
+  max-width: none;
+ }
+ .britannica-profile-article p {
+  font-size: 11px;
+  line-height: 1.25;
+ }
+ .britannica-ref-feature {
+  height: auto;
+  margin-top: 10px;
+  padding: 8px;
+  background: repeating-linear-gradient(0deg, #123d48 0 5px, #2a6670 5px 10px);
+ }
+ .britannica-ref-footer {
+  margin-top: 18px;
+ }
  .explorer-shell { grid-template-columns: 1fr; }
  .explorer-sidebar { display: none; }
  .explorer-toolbar { overflow-x: auto; }
