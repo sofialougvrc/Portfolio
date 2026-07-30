@@ -3671,7 +3671,7 @@ for exploring. that's kind of the whole point.
         <div class="skill-group">
           <div class="skill-group-title">[AI &amp; machine learning]</div>
           <div class="skill-tags">
-            <span class="stag">Prompt Engineering</span><span class="stag">LLM Integration</span><span class="stag">Structured LLM Output</span><span class="stag">Ollama</span><span class="stag">FAISS</span><span class="stag">Sentence Transformers</span><span class="stag">PyTorch-backed Embeddings</span><span class="stag">Hugging Face Transformers</span><span class="stag">Local LLM Inference</span><span class="stag">RAG Regression Detection</span><span class="stag">Retrieval hit@5</span><span class="stag">Canary Rollout Gating</span><span class="stag">Hallucination Evaluation</span>
+            <span class="stag">Prompt Engineering</span><span class="stag">LLM Integration</span><span class="stag">Structured LLM Output</span><span class="stag">Ollama</span><span class="stag">OpenRouter API</span><span class="stag">FAISS</span><span class="stag">Sentence Transformers</span><span class="stag">PyTorch-backed Embeddings</span><span class="stag">Hugging Face Transformers</span><span class="stag">Local LLM Inference</span><span class="stag">RAG Regression Detection</span><span class="stag">Retrieval hit@5</span><span class="stag">Canary Rollout Gating</span><span class="stag">Hallucination Evaluation</span>
           </div>
         </div>
         <div class="skill-group">
@@ -3695,7 +3695,7 @@ for exploring. that's kind of the whole point.
         <div class="skill-group">
           <div class="skill-group-title">[cloud &amp; infrastructure]</div>
           <div class="skill-tags">
-              <span class="stag skill-icon" title="AWS" role="img" aria-label="AWS"><i class="devicon-amazonwebservices-plain-wordmark" aria-hidden="true"></i></span><span class="stag">SST v4</span><span class="stag">AWS Lambda</span><span class="stag">AWS SQS</span><span class="stag">AWS S3</span><span class="stag">AWS IAM</span><span class="stag">AWS Secrets Manager</span><span class="stag">AWS CloudWatch</span><span class="stag">Serverless Architecture</span><span class="stag">Event-driven Pipelines</span>
+              <span class="stag skill-icon" title="AWS" role="img" aria-label="AWS"><i class="devicon-amazonwebservices-plain-wordmark" aria-hidden="true"></i></span><span class="stag">SST v4</span><span class="stag">AWS Lambda</span><span class="stag">AWS SQS</span><span class="stag">AWS S3</span><span class="stag">AWS IAM</span><span class="stag">AWS Secrets Manager</span><span class="stag">AWS CloudWatch</span><span class="stag">Railway</span><span class="stag">Vercel</span><span class="stag">Serverless Architecture</span><span class="stag">Event-driven Pipelines</span>
           </div>
         </div>
         <div class="skill-group">
@@ -3989,19 +3989,19 @@ const PROJECT_DATA = {
   description: 'Next.js/SST control plane for governing LLM and RAG canary releases with statistical gates instead of single-run pass/fail checks. It combines Mann-Whitney U testing, SPRT-style evidence accumulation, latency, retrieval quality, hallucination risk, and cost signals, with API-backed state, cost governance, and a versioned model/prompt/corpus registry on an AWS serverless path.',
   tags: ['Next.js','React','JavaScript','TypeScript','Node.js','Custom CSS','Mann-Whitney U','SPRT','P99 Latency Comparison','Retrieval hit@5','Cost-per-1k-token Tracking','Rust','Cargo','SST v4','AWS Lambda','AWS SQS','AWS S3','AWS IAM','AWS Secrets Manager','AWS CloudWatch','Versioned Model Registry','Prompt Registry','Corpus Snapshot Registry','JSON-persisted State'],
   github: 'https://github.com/sofialougvrc/Warden.git',
-  demo: '#'
+  demo: 'https://d2yeg20c8k5bcq.cloudfront.net/'
  },
  specdec: {
   title: 'SpecDec',
   description: 'Implements the Leviathan et al. 2023 speculative decoding algorithm from scratch, using a small draft model to speculate tokens ahead and a large target model to verify them in a single parallel forward pass. A custom CUDA C++ kernel handles the acceptance-rejection correction — the statistical core of the algorithm — compiled with NVCC and loaded via ctypes.',
   tags: ['Python','PyTorch','Hugging Face Transformers','CUDA C++','NVCC','cuRAND','ctypes','CUDA Events','GPT-2','Speculative Decoding','Acceptance-Rejection Sampling','Adaptive Speculation Depth','Tesla T4','unittest','Git'],
   github: 'https://github.com/sofialougvrc/SpecDec.git',
-  demo: '#'
+  demo: ''
  },
  fluxcore: {
   title: 'FluxCore',
   description: 'A native C++ analytics engine that processes financial tick data through a lock-free SPSC ring buffer and computes rolling microstructure signals in real time. The same engine runs in the browser via a WebAssembly bridge compiled with Emscripten, exposing live visualization, CSV replay, and benchmark instrumentation through a TypeScript dashboard.',
-  tags: ['C++','WebAssembly','TypeScript','JavaScript','HTML5','CSS3','Node.js','Emscripten','Lock-Free SPSC Ring Buffer','SIMD-Aware Native Analytics','EMA','VWAP','Yang-Zhang Volatility','Microprice','Signed Volume Imbalance','CSV Replay','Canvas API','localStorage','JSON Session Export'],
+  tags: ['C++','WebAssembly','TypeScript','JavaScript','HTML5','CSS3','Node.js','Railway','Emscripten','Lock-Free SPSC Ring Buffer','SIMD-Aware Native Analytics','EMA','VWAP','Yang-Zhang Volatility','Microprice','Signed Volume Imbalance','CSV Replay','Canvas API','localStorage','JSON Session Export'],
   github: 'https://github.com/sofialougvrc/FluxCore.git',
   demo: '#'
  },
@@ -4010,14 +4010,14 @@ const PROJECT_DATA = {
   description: 'A from-scratch RLHF pipeline implementing supervised fine-tuning, reward modeling with Bradley-Terry loss, and PPO policy optimization without using the TRL library. Built to keep every stage of the training process inspectable, including reward movement, KL divergence, clip fraction, and the gap between optimization signals and output quality.',
   tags: ['Python','PyTorch','Hugging Face Transformers','Hugging Face Datasets','GPT-2 Medium','Anthropic HH-RLHF Preference Data','NumPy','Matplotlib','PyYAML','tqdm','Rich','unittest','CSV Metrics Logging','JSONL Evaluation Outputs','Supervised Fine-Tuning','Reward Modeling','PPO from Scratch','Bradley-Terry Preference Loss','Generalized Advantage Estimation','KL Penalty','Clipped Policy Updates','Clipped Value Loss'],
   github: 'https://github.com/sofialougvrc/Prometheus.git',
-  demo: '#'
+  demo: ''
  },
  readsync: {
   title: 'ReadSync',
-  description: 'Indexes codebases at function and class granularity using Tree-sitter and Python AST, then maps extracted research concepts from academic papers to the specific files and functions where they are implemented, partially present, or missing. An Ollama-based LLM judge classifies each concept-to-code relationship with a stored rationale and confidence score surfaced in a React + D3 review workspace.',
-  tags: ['React','Vite','JavaScript','D3.js','FastAPI','Python','SQLite','Pydantic','PyMuPDF','Ollama','Sentence Transformers','PyTorch-backed Embeddings','Hugging Face Transformers','FAISS','Tree-sitter','Python AST','GitPython','Trafilatura','BibTeX Parsing','localStorage','ZIP Upload','HTML/JS Extraction'],
+  description: 'Indexes codebases at function and class granularity using Tree-sitter and Python AST, then maps extracted research concepts from academic papers to the specific files and functions where they are implemented, partially present, or missing. An LLM judge classifies each concept-to-code relationship with a stored rationale and confidence score surfaced in a React + D3 review workspace.',
+  tags: ['React','Vite','JavaScript','D3.js','FastAPI','Python','SQLite','Pydantic','PyMuPDF','Ollama','OpenRouter API','Railway','Vercel','Sentence Transformers','PyTorch-backed Embeddings','Hugging Face Transformers','FAISS','Tree-sitter','Python AST','GitPython','Trafilatura','BibTeX Parsing','localStorage','ZIP Upload','HTML/JS Extraction'],
   github: 'https://github.com/sofialougvrc/ReadSync.git',
-  demo: '#'
+  demo: 'https://read-sync-jhva.vercel.app/'
  }
 };
 
@@ -4125,11 +4125,15 @@ function openProjectModal(projectKey) {
  github.textContent = 'GitHub';
  actions.appendChild(github);
 
- const demo = document.createElement('a');
- demo.className = 'proj-link demo';
- demo.href = project.demo;
- demo.textContent = 'Demo';
- actions.appendChild(demo);
+ if (project.demo) {
+  const demo = document.createElement('a');
+  demo.className = 'proj-link demo';
+  demo.href = project.demo;
+  demo.target = '_blank';
+  demo.rel = 'noopener';
+  demo.textContent = 'Demo';
+  actions.appendChild(demo);
+ }
 
  backdrop.classList.add('open');
  const closeButton = backdrop.querySelector('.wc-btn.close');
