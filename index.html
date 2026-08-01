@@ -417,27 +417,93 @@ button,
  letter-spacing: 0;
  white-space: pre-wrap;
 }
-.run-row {
- display: grid;
- grid-template-columns: 44px 1fr;
- gap: 10px;
+.run-dialog {
+ width: min(380px, calc(100vw - 24px));
+}
+.run-form {
+ display: flex;
+ min-height: 118px;
+ flex-direction: column;
+ gap: 12px;
+ padding: 12px 8px 8px;
+ font-size: 11px;
+}
+.run-open-row {
+ display: flex;
  align-items: center;
- margin-bottom: 12px;
+ gap: 8px;
+}
+.run-open-row label {
+ flex: 0 0 auto;
+}
+.run-combo {
+ position: relative;
+ display: flex;
+ height: 22px;
+ min-width: 0;
+ flex: 1 1 auto;
 }
 .run-input {
+ flex: 1 1 auto;
+ min-width: 0;
  width: 100%;
  border: 0;
  border-radius: 0;
  background: #fff;
  box-shadow: var(--border-field);
  font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
- font-size: 12px;
- padding: 5px 7px;
+ font-size: 11px;
+ padding: 3px 4px;
+}
+.run-arrow {
+ width: 16px;
+ min-width: 16px;
+ height: 22px;
+ padding: 0;
+}
+.run-arrow span {
+ display: inline-block;
+ width: 0;
+ height: 0;
+ border-left: 3px solid transparent;
+ border-right: 3px solid transparent;
+ border-top: 4px solid #000;
+}
+.run-menu {
+ position: absolute;
+ left: 0;
+ top: 22px;
+ z-index: 12050;
+ display: none;
+ width: 100%;
+ max-height: 160px;
+ margin: 0;
+ padding: 1px 0;
+ overflow: auto;
+ list-style: none;
+ border: 1px solid #0a0a0a;
+ background: #fff;
+ color: #000;
+ font-size: 11px;
+}
+.run-menu.open {
+ display: block;
+}
+.run-menu li {
+ padding: 1px 5px;
+ cursor: default;
+}
+.run-menu li:hover {
+ background: #000080;
+ color: #fff;
 }
 .dialog-actions {
  display: flex;
  justify-content: flex-end;
  gap: 8px;
+}
+.run-form .dialog-actions {
+ margin-top: auto;
 }
 .dialog-actions button,
 .game-actions button {
@@ -3349,24 +3415,36 @@ for exploring. that's kind of the whole point.
 — sofia</textarea>
 </div>
 
-<div class="window dialog-window" id="runDialog">
+<div class="window dialog-window run-dialog" id="runDialog">
  <div class="window-titlebar">
- <span><svg class="win-icon" aria-hidden="true"><use href="#icon-computer"></use></svg> Run</span>
+ <span><img class="win-icon-img" src="icons/run.png" alt="" aria-hidden="true"> Run</span>
  <div class="window-controls">
  <button class="wc-btn close" aria-label="Close" onclick="closeRun()">✕</button>
  </div>
  </div>
- <div class="dialog-body">
- <div class="run-row">
- <svg class="desktop-svg" aria-hidden="true"><use href="#icon-computer"></use></svg>
- <label for="runCommand">Open:</label>
- <input class="run-input" id="runCommand" type="text" autocomplete="off" placeholder="projects.exe" onkeydown="if(event.key==='Enter') runCommand()">
+ <form class="run-form" onsubmit="event.preventDefault(); runCommand();">
+ <div class="run-open-row">
+ <label for="runCommand"><u>O</u>pen:</label>
+ <div class="run-combo">
+ <input class="run-input" id="runCommand" type="text" autocomplete="off" placeholder="projects.exe">
+ <button class="run-arrow" type="button" aria-label="Open list" onclick="toggleRunMenu(event)"><span aria-hidden="true"></span></button>
+ <ul class="run-menu" id="runMenu">
+ <li onmousedown="pickRunCommand('home.exe')">home.exe</li>
+ <li onmousedown="pickRunCommand('projects.exe')">projects.exe</li>
+ <li onmousedown="pickRunCommand('skills.exe')">skills.exe</li>
+ <li onmousedown="pickRunCommand('experience.exe')">experience.exe</li>
+ <li onmousedown="pickRunCommand('contact.exe')">contact.exe</li>
+ <li onmousedown="pickRunCommand('readme.txt')">readme.txt</li>
+ <li onmousedown="pickRunCommand('minesweeper.exe')">minesweeper.exe</li>
+ <li onmousedown="pickRunCommand('shutdown.exe')">shutdown.exe</li>
+ </ul>
+ </div>
  </div>
  <div class="dialog-actions">
- <button type="button" onclick="runCommand()">OK</button>
+ <button type="submit">OK</button>
  <button type="button" onclick="closeRun()">Cancel</button>
  </div>
- </div>
+ </form>
 </div>
 
 <div class="window game-window" id="gameWindow">
@@ -4226,6 +4304,29 @@ function openRun() {
 function closeRun() {
  const dialog = document.getElementById('runDialog');
  if (dialog) dialog.classList.remove('show');
+ closeRunMenu();
+ resetIdleTimer();
+}
+
+function toggleRunMenu(event) {
+ if (event) event.stopPropagation();
+ const menu = document.getElementById('runMenu');
+ if (menu) menu.classList.toggle('open');
+ resetIdleTimer();
+}
+
+function closeRunMenu() {
+ const menu = document.getElementById('runMenu');
+ if (menu) menu.classList.remove('open');
+}
+
+function pickRunCommand(command) {
+ const input = document.getElementById('runCommand');
+ if (input) {
+  input.value = command;
+  input.focus();
+ }
+ closeRunMenu();
  resetIdleTimer();
 }
 
@@ -4246,6 +4347,7 @@ function runCommand() {
  const input = document.getElementById('runCommand');
  const command = input ? input.value.trim().toLowerCase() : '';
  const target = RUN_COMMANDS[command];
+ closeRunMenu();
  if (!target) {
   if (input) {
    input.value = '';
