@@ -3615,7 +3615,17 @@ for exploring. that's kind of the whole point.
  <table class="outlook-table" aria-label="Experience inbox">
  <thead><tr><th>From</th><th>Subject</th><th>Date</th></tr></thead>
  <tbody>
- <tr class="outlook-row selected" data-exp="odin" onclick="selectExperience('odin')">
+ <tr class="outlook-row selected" data-exp="codeinplace" onclick="selectExperience('codeinplace')">
+ <td>Code in Place, Stanford University</td>
+ <td>Section Leader, Probability for AI</td>
+ <td>October 2026 – Present</td>
+ </tr>
+ <tr class="outlook-row" data-exp="matsuo" onclick="selectExperience('matsuo')">
+ <td>Matsuo-Iwasawa Laboratory, University of Tokyo</td>
+ <td>Data Science and Machine Learning Student</td>
+ <td>September 2026 – Present</td>
+ </tr>
+ <tr class="outlook-row" data-exp="odin" onclick="selectExperience('odin')">
  <td>The Odin Project</td>
  <td>Student Software Engineer</td>
  <td>May 2026 – August 2026</td>
@@ -3630,12 +3640,12 @@ for exploring. that's kind of the whole point.
  </div>
  <div class="outlook-message" id="experienceReadingPane">
  <div class="outlook-meta">
- <strong>From:</strong><span id="experienceFrom">The Odin Project</span>
- <strong>Subject:</strong><span id="experienceSubject">Student Software Engineer</span>
- <strong>Date:</strong><span id="experienceDate">May 2026 – August 2026</span>
+ <strong>From:</strong><span id="experienceFrom">Code in Place, Stanford University</span>
+ <strong>Subject:</strong><span id="experienceSubject">Section Leader, Probability for AI</span>
+ <strong>Date:</strong><span id="experienceDate">October 2026 – Present</span>
  <strong>Location:</strong><span id="experienceLocation">Manila, Philippines</span>
  </div>
- <div id="experienceBody">Server-side applications built and deployed with Ruby on Rails and PostgreSQL, covering relational data modeling, user authentication, and RESTful routing. Frontends are built with React, ES6+ JavaScript, and modern CSS, with layouts that adapt cleanly from mobile to desktop screens.</div>
+ <div id="experienceBody">Leading a weekly online class of 10 students, adapting Stanford's CS109 into an introduction to probability and AI. Sessions center on working through statistical models problem by problem, so the concepts get used rather than just explained. Students also learn to build with AI code agents, taking a question and a dataset through to a working, data-driven project.</div>
  </div>
  </div>
  </div>
@@ -4153,6 +4163,20 @@ function buildSkillsDetails() {
 }
 
 const EXPERIENCE_DATA = {
+ codeinplace: {
+  from: 'Code in Place, Stanford University',
+  subject: 'Section Leader, Probability for AI',
+  date: 'October 2026 – Present',
+  location: 'Manila, Philippines',
+  body: "Leading a weekly online class of 10 students, adapting Stanford's CS109 into an introduction to probability and AI. Sessions center on working through statistical models problem by problem, so the concepts get used rather than just explained. Students also learn to build with AI code agents, taking a question and a dataset through to a working, data-driven project."
+ },
+ matsuo: {
+  from: 'Matsuo-Iwasawa Laboratory, University of Tokyo',
+  subject: 'Data Science and Machine Learning Student',
+  date: 'September 2026 – Present',
+  location: 'Manila, Philippines',
+  body: "Completing coursework and projects in the University of Tokyo's GCI World program (Matsuo-Iwasawa Laboratory). Cleaning, transforming, and analyzing data with NumPy and Pandas, visualizing results with Matplotlib, and querying relational databases with SQL. Building supervised and unsupervised machine learning workflows, engineering features, and evaluating models on unseen data. Applying time series analysis to sequential data, with a focus on quantitative applications."
+ },
  odin: {
   from: 'The Odin Project',
   subject: 'Student Software Engineer',
