@@ -21,6 +21,7 @@ Existing cloned repo assets copied from floppyy and wired for Explorer views:
 - icons/garfield.png (found in repo: public/icons/garfield.png)
 - icons/share.png (found in repo: public/icons/share.png)
 - icons/msoutlook.png (found in repo: public/icons/msoutlook.png)
+- icons/winamp.png (found in repo: public/icons/winamp.png)
 - icons/address-book.webp (provided by user: /Applications/Crdfile-30.webp)
 - icons/toolbar/back.png (found in repo: public/icons/toolbar/back.png)
 - icons/toolbar/forward.png (found in repo: public/icons/toolbar/forward.png)
@@ -41,6 +42,8 @@ Remote Devicon SVGs already referenced in Skills:
 - wasm-original.svg
 New placeholder reserved for the future Address Book section:
 - icons/address-book.png
+Portfolio paper asset linked from Winamp:
+- papers/gradient-snr-grokking.pdf
 -->
 <html lang="en">
 <head>
@@ -416,6 +419,173 @@ button,
  line-height: 1.5;
  letter-spacing: 0;
  white-space: pre-wrap;
+}
+.window.dialog-window.winamp-paper-window {
+ width: min(340px, calc(100vw - 28px));
+ min-height: 0;
+}
+.winamp-paper-window.show {
+ display: block;
+}
+.winamp-shell {
+ padding: 7px;
+ background: #c0c0c0;
+}
+.winamp-main {
+ padding: 5px;
+ background: #6f6f78;
+ box-shadow: inset 1px 1px 0 #d8d8df, inset -1px -1px 0 #24242a;
+ color: #c7d1c7;
+ font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+.winamp-display {
+ display: grid;
+ grid-template-columns: 70px 1fr;
+ gap: 7px;
+ min-height: 54px;
+ padding: 4px;
+ background: #050705;
+ border: 1px solid #000;
+ box-shadow: inset 1px 1px 0 #202020, inset -1px -1px 0 #9a9a9a;
+}
+.winamp-time {
+ color: #37ff42;
+ font-family: "Space Mono", "Courier New", monospace;
+ font-size: 18px;
+ font-weight: 700;
+ letter-spacing: 0;
+ line-height: 1;
+}
+.winamp-bars {
+ display: flex;
+ align-items: end;
+ gap: 1px;
+ height: 18px;
+ margin-top: 10px;
+}
+.winamp-bars span {
+ display: block;
+ width: 3px;
+ background: #37ff42;
+}
+.winamp-bars span:nth-child(1) { height: 5px; }
+.winamp-bars span:nth-child(2) { height: 12px; }
+.winamp-bars span:nth-child(3) { height: 8px; }
+.winamp-bars span:nth-child(4) { height: 16px; }
+.winamp-bars span:nth-child(5) { height: 10px; }
+.winamp-bars span:nth-child(6) { height: 6px; }
+.winamp-track-area {
+ min-width: 0;
+}
+.winamp-meta-row {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ margin-top: 6px;
+ color: #37ff42;
+ font-size: 8px;
+ line-height: 1;
+}
+.winamp-meta-row span:nth-child(even) {
+ color: #a0a0a0;
+}
+.winamp-title-button {
+ display: block;
+ width: 100%;
+ height: 16px;
+ padding: 1px 0;
+ border: 0;
+ border-radius: 0;
+ background: #050705;
+ color: #37ff42;
+ box-shadow: none;
+ overflow: hidden;
+ text-align: left;
+ cursor: pointer;
+ font-family: "Space Mono", "Courier New", monospace;
+ font-size: 9px;
+ font-weight: 700;
+ line-height: 12px;
+}
+.winamp-title-button:focus {
+ outline: 1px dotted #37ff42;
+ outline-offset: -1px;
+}
+.winamp-ticker {
+ display: inline-block;
+ min-width: max-content;
+ white-space: nowrap;
+ animation: winampTicker 22s linear infinite;
+}
+@keyframes winampTicker {
+ from { transform: translateX(100%); }
+ to { transform: translateX(-100%); }
+}
+.winamp-seek {
+ height: 10px;
+ margin: 6px 4px 5px;
+ background: #2f2f34;
+ box-shadow: inset 1px 1px 0 #151515, inset -1px -1px 0 #a0a0a0;
+}
+.winamp-seek::before {
+ content: "";
+ display: block;
+ width: 38%;
+ height: 100%;
+ background: repeating-linear-gradient(90deg, #37ff42 0 3px, #111 3px 4px);
+}
+.winamp-controls {
+ display: flex;
+ align-items: center;
+ gap: 3px;
+}
+.winamp-transport {
+ width: 24px;
+ height: 18px;
+ min-width: 24px;
+ min-height: 18px;
+ padding: 0;
+ font-size: 10px;
+ line-height: 1;
+}
+.winamp-option {
+ min-width: 44px;
+ height: 18px;
+ min-height: 18px;
+ padding: 0 4px;
+ margin-left: auto;
+ font-size: 8px;
+}
+.winamp-paper-detail {
+ display: none;
+ margin-top: 7px;
+ padding: 7px;
+ background: #fff;
+ color: #000;
+ box-shadow: var(--border-field);
+ font-size: 11px;
+ line-height: 1.45;
+}
+.winamp-paper-window.detail-open .winamp-paper-detail {
+ display: block;
+}
+.winamp-paper-actions {
+ display: flex;
+ justify-content: flex-end;
+ margin-top: 8px;
+}
+.winamp-paper-actions a {
+ min-width: 82px;
+ min-height: 22px;
+ padding: 4px 10px;
+ background: var(--button-face);
+ color: #000;
+ text-align: center;
+ text-decoration: none;
+ box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+}
+.winamp-paper-actions a:active {
+ box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
 }
 .run-dialog {
  width: min(380px, calc(100vw - 24px));
@@ -3303,6 +3473,10 @@ body[data-active-page="home"] #portfolio-browser .page-viewport {
  <div class="d-icon-box no-tile"><img src="icons/notepad.png" alt="" aria-hidden="true"></div>
  <span>README.txt</span>
  </a>
+ <a href="#" onclick="openWinampPaper(); return false;" class="d-icon" style="text-decoration:none;">
+ <div class="d-icon-box no-tile"><img src="icons/winamp.png" alt="" aria-hidden="true"></div>
+ <span>Research<br>Player</span>
+ </a>
  <a href="#" onclick="openGame(); return false;" class="d-icon" style="text-decoration:none;">
  <div class="d-icon-box no-tile"><img src="portfolio98-minesweeper.webp" alt="" aria-hidden="true"></div>
  <span>Minesweeper</span>
@@ -3415,6 +3589,46 @@ for exploring. that's kind of the whole point.
 — sofia</textarea>
 </div>
 
+<div class="window dialog-window winamp-paper-window" id="winampPaperWindow">
+ <div class="window-titlebar">
+ <span><img class="win-icon-img" src="icons/winamp.png" alt="" aria-hidden="true"> Winamp - Research Player</span>
+ <div class="window-controls">
+ <button class="wc-btn" aria-label="Minimize">_</button><button class="wc-btn" aria-label="Maximize">□</button><button class="wc-btn close" aria-label="Close" onclick="closeWinampPaper()">✕</button>
+ </div>
+ </div>
+ <div class="winamp-shell">
+ <div class="winamp-main">
+ <div class="winamp-display">
+ <div>
+ <div class="winamp-time">-0:00</div>
+ <div class="winamp-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+ </div>
+ <div class="winamp-track-area">
+ <button class="winamp-title-button" type="button" aria-expanded="false" onclick="toggleWinampPaperDetail(this)">
+ <span class="winamp-ticker">Gradient SNR and Loss-Curve Oscillations as Independent Precursors to Grokking: A Comparative Study *** Gradient SNR and Loss-Curve Oscillations as Independent Precursors to Grokking: A Comparative Study ***</span>
+ </button>
+ <div class="winamp-meta-row"><strong>128</strong><span>kbps</span><strong>44</strong><span>kHz</span><span>stereo</span></div>
+ </div>
+ </div>
+ <div class="winamp-seek" aria-hidden="true"></div>
+ <div class="winamp-controls" aria-label="Winamp controls">
+ <button class="winamp-transport" type="button" aria-label="Previous">|&lt;</button>
+ <button class="winamp-transport" type="button" aria-label="Play">&gt;</button>
+ <button class="winamp-transport" type="button" aria-label="Pause">||</button>
+ <button class="winamp-transport" type="button" aria-label="Stop">■</button>
+ <button class="winamp-transport" type="button" aria-label="Next">&gt;|</button>
+ <button class="winamp-option" type="button">PAPER</button>
+ </div>
+ <div class="winamp-paper-detail" id="winampPaperDetail">
+ Independent ML research on grokking, where small transformers memorize training data quickly but only generalize much later. I tested whether the signal-to-noise ratio of the gradient norm can warn of this switch in advance. Across 15 runs, the SNR decline preceded the jump in test accuracy every time, by about 2,000 steps on average, and beat a naive training-loss baseline. It needs no extra computation. This is a small study on one task and one model, so it shows a consistent pattern, not a proven mechanism.
+ <div class="winamp-paper-actions">
+ <a href="papers/gradient-snr-grokking.pdf" target="_blank" rel="noopener">Read Paper</a>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
 <div class="window dialog-window run-dialog" id="runDialog">
  <div class="window-titlebar">
  <span><img class="win-icon-img" src="icons/run.png" alt="" aria-hidden="true"> Run</span>
@@ -3434,6 +3648,7 @@ for exploring. that's kind of the whole point.
  <li onmousedown="pickRunCommand('skills.exe')">skills.exe</li>
  <li onmousedown="pickRunCommand('experience.exe')">experience.exe</li>
  <li onmousedown="pickRunCommand('contact.exe')">contact.exe</li>
+ <li onmousedown="pickRunCommand('research.exe')">research.exe</li>
  <li onmousedown="pickRunCommand('readme.txt')">readme.txt</li>
  <li onmousedown="pickRunCommand('minesweeper.exe')">minesweeper.exe</li>
  <li onmousedown="pickRunCommand('shutdown.exe')">shutdown.exe</li>
@@ -3915,6 +4130,7 @@ for exploring. that's kind of the whole point.
  <button class="start-menu-item" type="button" onclick="openProgramPage('skills')"><span class="start-menu-label"><img class="win-icon-img" src="portfolio98-computer.png" alt="" aria-hidden="true"> Skills</span></button>
  <button class="start-menu-item" type="button" onclick="openProgramPage('experience')"><span class="start-menu-label"><img class="win-icon-img" src="icons/msoutlook.png" alt="" aria-hidden="true"> Experience</span></button>
  <button class="start-menu-item" type="button" onclick="openProgramPage('contact')"><span class="start-menu-label"><img class="win-icon-img" src="icons/address-book.webp" alt="" aria-hidden="true"> Contact</span></button>
+ <button class="start-menu-item" type="button" onclick="openWinampPaper()"><span class="start-menu-label"><img class="win-icon-img" src="icons/winamp.png" alt="" aria-hidden="true"> Research Player</span></button>
  </div>
  </div>
  <div class="start-menu-separator"></div>
@@ -4288,6 +4504,12 @@ const RUN_COMMANDS = {
  'readme.txt': 'readme',
  'notepad': 'readme',
  'notepad.exe': 'readme',
+ 'research': 'research',
+ 'research.exe': 'research',
+ 'paper': 'research',
+ 'paper.exe': 'research',
+ 'winamp': 'research',
+ 'winamp.exe': 'research',
  'game': 'game',
  'game.exe': 'game',
  'minesweeper.exe': 'game',
@@ -4393,6 +4615,29 @@ function closeReadme() {
  resetIdleTimer();
 }
 
+function openWinampPaper() {
+ hideStartMenu();
+ const player = document.getElementById('winampPaperWindow');
+ if (player) player.classList.add('show');
+ resetIdleTimer();
+}
+
+function closeWinampPaper() {
+ const player = document.getElementById('winampPaperWindow');
+ if (player) player.classList.remove('show', 'detail-open');
+ const titleButton = player?.querySelector('.winamp-title-button');
+ if (titleButton) titleButton.setAttribute('aria-expanded', 'false');
+ resetIdleTimer();
+}
+
+function toggleWinampPaperDetail(button) {
+ const player = document.getElementById('winampPaperWindow');
+ if (!player) return;
+ const isOpen = player.classList.toggle('detail-open');
+ if (button) button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+ resetIdleTimer();
+}
+
 function runCommand() {
  const input = document.getElementById('runCommand');
  const command = input ? input.value.trim().toLowerCase() : '';
@@ -4411,6 +4656,8 @@ function runCommand() {
   openGame();
  } else if (target === 'readme') {
   openReadme();
+ } else if (target === 'research') {
+  openWinampPaper();
  } else if (target === 'shutdown') {
   fakeShutdown();
  } else {
@@ -4751,6 +4998,7 @@ document.addEventListener('keydown', event => {
   hideStartMenu();
   closeRun();
   closeProjectModal();
+  closeWinampPaper();
   hideScreensaver();
  }
 });
